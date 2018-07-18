@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Translator app</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container">
+    <h1 class="jumbotron">
+        Available languages
+    </h1>
+    {% block body %}
+    <form action="/recognise" method="post">
+        <button name="Speak" onclick="speak()" style="display:{{flag}}" class="btn-success">speak</button>
+    </form>
+
+    <h2>{{text}}</h2>
+
+    <form action="" method="POST" class="jumbotron">
+        <h3>
+            <label class="container">
+                {% for key in languages %}
+                <span class="language">
+                <input type="radio" name="language" value={{key}} id="test1">
+                <span>{{key}}</span>
+                </span>
+                {% endfor %}
+            </label>
+        </h3>
+        <button type="submit" class="btn-success">submit</button>
+    </form>
+    {% endblock %}
+</body>
+
+</html>
